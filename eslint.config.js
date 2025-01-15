@@ -17,12 +17,12 @@ export default [
 
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
-  
+
   {
     ...pluginCypress.configs.recommended,
     files: [
@@ -30,5 +30,13 @@ export default [
       'cypress/support/**/*.{js,ts,jsx,tsx}'
     ],
   },
+
+  {
+    rules : {
+      'vue/multi-word-component-names': 'off',
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  },
+
   skipFormatting,
 ]
