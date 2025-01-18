@@ -19,7 +19,7 @@ import Cards from '@/components/custom/cards/Cards.vue'
     </aside>
     <!-- ///////////////////////////// -->
 
-    <section>
+    <section style="text-align: center">
       <h1>¡Bienvenido a la tienda de Petro! :)</h1>
       <p>Encuentra los mejores productos a los mejores precios</p>
     </section>
@@ -51,6 +51,7 @@ import Cards from '@/components/custom/cards/Cards.vue'
   /* flex-wrap: nowrap; */
   gap: 15px;
   padding: 5px 15px;
+  margin-top: 10px;
   justify-content: center;
 }
 
