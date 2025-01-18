@@ -8,10 +8,6 @@ import Navbar from '@/components/Layout/inc/Navbar.vue'
 
 <template>
   <Navbar />
-
-  <RouterLink :class="$style.navItem" to="/">Home</RouterLink>
-  <RouterLink :class="$style.navItem" to="/about">About</RouterLink>
-
   <RouterView />
 </template>
 
