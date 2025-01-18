@@ -217,9 +217,12 @@ const toggleSubmenu = () => {
 }
 
 .mobileContainer {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #ffe600;
-  padding: 15px;
+  padding: 15px 0px;
   box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
@@ -251,11 +254,11 @@ const toggleSubmenu = () => {
 }
 
 .subMenuContainer {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 65px;
   left: 0;
   width: 100%;
-  height: 90vh;
+  height: 100%;
   background: white;
   border-top: 1px solid #ccc;
 }
