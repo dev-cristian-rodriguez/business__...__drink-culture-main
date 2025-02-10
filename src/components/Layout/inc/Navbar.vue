@@ -81,7 +81,9 @@ const toggleSubmenu = () => {
 </script>
 
 <template>
+  <!-- _____________________________________________ -->
   <!-- Mobile view -->
+  <!-- _____________________________________________ -->
   <main :class="$style.mobileContainer">
     <nav :class="$style.navContent">
       <img :class="$style.firstLogo" src="@/assets/images/major-icon.png" width="45" />
@@ -123,7 +125,7 @@ const toggleSubmenu = () => {
         <UserStatusIcon width="70" height="70" color="#1a1a32" />
         <p>
           <span style="font-weight: bold">Bienvenido, </span> Ingresa con tu cuenta de google para
-          poder ver tus compras, carrito de compras, favoritos y más.
+          poder ver tus compras, carrito de compras y favoritos.
         </p>
       </div>
 
@@ -151,7 +153,9 @@ const toggleSubmenu = () => {
     </aside>
   </main>
 
+  <!-- _____________________________________________ -->
   <!-- Desktop view -->
+  <!-- _____________________________________________ -->
   <main :class="$style.desktopContainer">
     <nav :class="$style.navigationContentInColumn1">
       <div>
@@ -346,7 +350,7 @@ const toggleSubmenu = () => {
   background-color: rgba(77, 77, 240, 0.1);
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   /* Desktop view */
 
   .mobileContainer {

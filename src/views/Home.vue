@@ -19,10 +19,10 @@ import Cards from '@/components/custom/cards/Cards.vue'
     </aside>
     <!-- ///////////////////////////// -->
 
-    <section style="text-align: center">
+    <!-- <section style="text-align: center">
       <h1>¡Bienvenido a la tienda de Petro! :)</h1>
       <p>Encuentra los mejores productos a los mejores precios</p>
-    </section>
+    </section> -->
 
     <section :class="$style.cardsContainer">
       <Cards />
@@ -37,6 +37,7 @@ import Cards from '@/components/custom/cards/Cards.vue'
 </template>
 
 <style module>
+/* Mobile */
 .mobileImageContainer {
   display: block;
 }
@@ -46,22 +47,45 @@ import Cards from '@/components/custom/cards/Cards.vue'
 }
 
 .cardsContainer {
+  /* background: red; */
   display: flex;
   flex-wrap: wrap;
   /* flex-wrap: nowrap; */
-  gap: 15px;
-  padding: 5px 15px;
-  margin-top: 10px;
+  row-gap: 20px;
+  column-gap: 30px;
+
+  /* padding: 5px 25px; */
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
   justify-content: center;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
+  /* Desktop */
   .mobileImageContainer {
     display: none;
   }
 
   .desktopImageContainer {
     display: block;
+  }
+
+  .cardsContainer {
+    margin-top: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    background: green;
+    /* background: red;
+    display: grid;
+    grid-template-columns: repeat(4, 180px);
+    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 5px 15%;
+    margin-top: 30px;
+    justify-content: center; */
   }
 }
 </style>
