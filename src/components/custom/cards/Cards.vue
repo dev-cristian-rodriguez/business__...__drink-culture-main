@@ -9,7 +9,7 @@ const testId = '6'
 </script>
 
 <template>
-  <main style="background: red">
+  <main>
     <aside :class="$style.cardContainer">
       <router-link :to="`/detail/${testId}`" :class="$style.linkToDetail">
         <img src="@/assets/images/beverage-2.jpg" />

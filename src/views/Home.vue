@@ -52,7 +52,7 @@ import Cards from '@/components/custom/cards/Cards.vue'
   flex-wrap: wrap;
   /* flex-wrap: nowrap; */
   row-gap: 20px;
-  column-gap: 30px;
+  column-gap: 35px;
 
   /* padding: 5px 25px; */
   margin-top: 30px;
@@ -76,7 +76,7 @@ import Cards from '@/components/custom/cards/Cards.vue'
     margin-left: 10%;
     margin-right: 10%;
 
-    background: green;
+    /* background: green; */
     /* background: red;
     display: grid;
     grid-template-columns: repeat(4, 180px);

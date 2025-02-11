@@ -8,19 +8,20 @@ import Navbar from '@/components/Layout/inc/Navbar.vue'
 
 <template>
   <Navbar />
-  <RouterView />
+  <main :class="$style.childrenComponent">
+    <RouterView />
+  </main>
 </template>
 
 <style module>
-.navContent {
-  display: flex;
-  border-top: 1px solid rgb(47, 47, 166);
-  margin-top: 15px;
-  gap: 10px;
+.childrenComponent {
+  /* background: red; */
+  margin-top: 65px;
 }
 
-.navItem {
-  color: rgb(47, 47, 166);
-  text-decoration: underline;
+@media screen and (min-width: 800px) {
+  .childrenComponent {
+    margin-top: 0px;
+  }
 }
 </style>
