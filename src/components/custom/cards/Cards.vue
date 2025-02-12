@@ -12,9 +12,9 @@ const testId = '6'
   <main>
     <aside :class="$style.cardContainer">
       <router-link :to="`/detail/${testId}`" :class="$style.linkToDetail">
-        <img src="@/assets/images/beverage-2.jpg" />
+        <img src="@/assets/images/beverage-3.webp" />
 
-        <h2 :class="$style.title">Consola PS5 slim de disco de 1TB bbbbb ewqe eqwe eqw</h2>
+        <h2 :class="$style.title">Whisky Single Malt 100%</h2>
         <h3 :class="$style.type">PS5</h3>
       </router-link>
 
