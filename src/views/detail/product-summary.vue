@@ -3,29 +3,29 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
 </script>
 
 <template>
-  <main :class="$style.productSummary">
-    <p :class="$style.vendorInfo"><strong> Vendido por: </strong> Licor JB</p>
-    <p :class="$style.price">$162.000</p>
-    <p :class="$style.stockInfo">¡Últimas 10 unidades!</p>
+  <main :class="$style['product-summary']">
+    <p :class="$style['product-summary__vendor-info']"><strong>Vendido por:</strong> Licor JB</p>
+    <p :class="$style['product-summary__price']">$162.000</p>
+    <p :class="$style['product-summary__stock-info']">¡Últimas 10 unidades!</p>
 
-    <div :class="$style.deliveryConditions">
-      <h5 :class="$style.deliveryTitle">Condiciones de entrega</h5>
+    <div :class="$style['product-summary__delivery-conditions']">
+      <h5 :class="$style['product-summary__delivery-title']">Condiciones de entrega</h5>
 
-      <div :class="$style.deliveryInfo1">
-        <Car03Icon width="20" height="20" color="#1a1a32" />
+      <div :class="$style['product-summary__delivery-info']">
+        <Car03Icon width="20" height="20" :class="$style['product-summary__icon']" />
         <p>Enviado por: <strong> Licor JB </strong></p>
       </div>
 
-      <p :class="$style.deliveryTime">Entrega de 3 a 9 días hábiles</p>
+      <p :class="$style['product-summary__delivery-time']">Entrega de 3 a 9 días hábiles</p>
 
-      <div :class="$style.deliveryInfo2">
-        <Archive01Icon width="20" height="20" color="#1a1a32" />
+      <div :class="$style['product-summary__delivery-info']">
+        <Archive01Icon width="20" height="20" :class="$style['product-summary__icon']" />
         <p>Disponible para: <strong> Compra y recoge </strong></p>
       </div>
     </div>
 
-    <div :class="$style.addToCart">
-      <button :class="$style.addToCartButton" type="button">
+    <div :class="$style['product-summary__add-to-cart']">
+      <button :class="$style['product-summary__add-to-cart-button']" type="button">
         Agregar al carrito
         <ShoppingCart01Icon width="20" height="20" />
       </button>
@@ -34,7 +34,7 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
 </template>
 
 <style lang="css" module>
-.productSummary {
+.product-summary {
   width: 100%;
   max-width: none;
   border: 1px solid rgb(189, 188, 188);
@@ -42,7 +42,7 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
   margin-top: 30px;
 }
 
-.vendorInfo {
+.product-summary__vendor-info {
   font-size: 12px;
   background-color: #f4f4f4;
   padding: 8px 10px;
@@ -51,61 +51,51 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
   border-top-right-radius: 10px;
 }
 
-.price {
+.product-summary__price {
   font-size: 12px;
   font-weight: bold;
   margin: 12px 10px;
 }
 
-.stockInfo {
+.product-summary__stock-info {
   font-size: 12px;
   color: red;
   margin: 10px 10px;
 }
 
-.deliveryConditions {
+.product-summary__delivery-conditions {
   background-color: #f4f4f4;
   padding: 5px 10px;
   border-radius: 5px;
   margin: 0 10px;
 }
 
-.deliveryTitle {
+.product-summary__delivery-title {
   font-size: 12px;
   margin-top: 4px;
   margin-bottom: 0px;
 }
 
-.deliveryInfo1 {
+.product-summary__delivery-info {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
   margin-top: 6px;
-  margin-bottom: -8px;
 }
 
-.deliveryTime {
+.product-summary__delivery-time {
   font-size: 12px;
   margin-top: 0px;
 }
 
-.deliveryInfo2 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.addToCart {
+.product-summary__add-to-cart {
   background-color: saddlebrown;
   margin: 15px 10px;
   border-radius: 6px;
 }
 
-.addToCartButton {
+.product-summary__add-to-cart-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,12 +111,12 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
   transition: background 0.3s;
 }
 
-.addToCartButton:hover {
+.product-summary__add-to-cart-button:hover {
   background: #121221;
 }
 
 @media (min-width: 900px) {
-  .productSummary {
+  .product-summary {
     max-width: 550px;
   }
 }

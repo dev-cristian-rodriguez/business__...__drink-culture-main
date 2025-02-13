@@ -1,31 +1,26 @@
 <script setup lang="ts">
-// import { defineProps } from 'vue'
-
 import { ShoppingCart01Icon } from 'hugeicons-vue'
 
 const testId = '6'
-
-//312B2F
 </script>
 
 <template>
   <main>
-    <aside :class="$style.cardContainer">
-      <router-link :to="`/detail/${testId}`" :class="$style.linkToDetail">
-        <img src="@/assets/images/beverage-3.webp" />
-
-        <h2 :class="$style.title">Whisky Single Malt 100%</h2>
-        <h3 :class="$style.type">PS5</h3>
+    <aside :class="$style['card']">
+      <router-link :to="`/detail/${testId}`" :class="$style['card__link']">
+        <img src="@/assets/images/beverage-3.webp" :class="$style['card__image']" />
+        <h2 :class="$style['card__title']">Whisky Single Malt 100%</h2>
+        <h3 :class="$style['card__type']">PS5</h3>
       </router-link>
 
-      <div :class="$style.discountContainer">
-        <p :class="$style.discount">- 13%</p>
-        <p :class="$style.previousPrice">$ 1,900,000</p>
+      <div :class="$style['card__discount-container']">
+        <p :class="$style['card__discount']">- 13%</p>
+        <p :class="$style['card__previous-price']">$ 1,900,000</p>
       </div>
 
-      <p :class="$style.price">$ 1,650,000</p>
+      <p :class="$style['card__price']">$ 1,650,000</p>
 
-      <button type="button">
+      <button type="button" :class="$style['card__button']">
         Agregar al carrito
         <ShoppingCart01Icon width="20" />
       </button>
@@ -34,52 +29,48 @@ const testId = '6'
 </template>
 
 <style module>
-.cardContainer {
+.card {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 170px;
   padding: 5px;
 }
 
-.cardContainer img {
+.card__image {
   width: 100%;
 }
 
-.title {
-  margin: 0px;
-  margin-top: 8px;
+.card__title {
+  margin: 8px 0 0;
   font-size: 13px;
   color: #1a1a32;
   font-weight: 600;
 }
 
-.type {
-  margin: 3px 0px 0px 0px;
+.card__type {
+  margin: 3px 0 0;
   font-size: 13px;
   font-weight: 500;
   color: #969393;
 }
 
-.linkToDetail {
+.card__link {
   text-decoration: none;
   cursor: pointer;
 }
 
-.linkToDetail:hover .title {
+.card__link:hover .card__title {
   color: rgb(96, 96, 202);
   text-decoration: underline;
 }
 
-.discountContainer {
+.card__discount-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 15px 0px 0px 0px;
 }
 
-.discount {
-  margin: 0px;
+.card__discount {
   font-size: 13px;
   padding: 2px 5px;
   border-radius: 4px;
@@ -88,24 +79,23 @@ const testId = '6'
   font-weight: bold;
 }
 
-.previousPrice {
-  margin: 0px;
+.card__previous-price {
   font-size: 13px;
   color: #ada9a9;
   text-decoration: line-through;
 }
 
-.price {
-  margin: 0px;
+.card__price {
   margin-top: 10px;
   font-size: 13px;
   color: #1a1a32;
   font-weight: bold;
+  margin: 0px;
 }
 
-.cardContainer button {
-  margin: 12px 0px 0px 0px;
-  padding: 7px 0px;
+.card__button {
+  margin-top: 12px;
+  padding: 7px 0;
   border: none;
   border-radius: 6px;
   background: #1a1a32;
@@ -119,12 +109,12 @@ const testId = '6'
   transition: background 0.3s;
 }
 
-.cardContainer button:hover {
+.card__button:hover {
   background: #121221;
 }
 
 @media screen and (min-width: 700px) {
-  .cardContainer {
+  .card {
     width: 200px;
   }
 }

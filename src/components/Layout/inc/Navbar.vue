@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import {
-  Home01Icon,
   Menu01Icon,
   LocationShare01Icon,
-  // UserIcon,
+  QuillWrite01Icon,
   UserStatusIcon,
   ShoppingCart01Icon,
   Cancel01Icon,
@@ -84,90 +83,93 @@ const toggleSubmenu = () => {
   <!-- _____________________________________________ -->
   <!-- Mobile view -->
   <!-- _____________________________________________ -->
-  <main :class="$style.mobileContainer">
-    <nav :class="$style.navContent">
-      <img :class="$style.firstLogo" src="@/assets/images/major-icon.png" width="45" />
+  <main :class="$style['mobile-container']">
+    <nav :class="$style['nav-content']">
+      <Menu01Icon
+        v-if="!showSubmenu"
+        width="23"
+        height="23"
+        color="white"
+        cursor="pointer"
+        v-on:click="toggleSubmenu"
+      />
 
-      <label :class="$style.inputContainer" for="search">
-        <Home01Icon width="22" />
+      <Cancel01Icon
+        v-else
+        width="23"
+        height="23"
+        color="white"
+        cursor="pointer"
+        v-on:click="toggleSubmenu"
+      />
+
+      <label :class="$style['nav-content__input-container']" for="search">
+        <QuillWrite01Icon width="22" height="22" color="#1a1a32" />
 
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Buscar producto"
           id="search"
           name="search"
           style="font-family: 'Inter', sans-serif"
         />
       </label>
 
-      <Menu01Icon
-        v-if="!showSubmenu"
-        :class="$style.menuIcon"
-        width="23"
-        color="#1a1a32"
-        cursor="pointer"
-        v-on:click="toggleSubmenu"
-      />
-      <Cancel01Icon
-        v-else
-        :class="$style.menuIcon"
-        width="23"
-        color="#1a1a32"
-        cursor="pointer"
-        v-on:click="toggleSubmenu"
-      />
-
-      <ShoppingCart01Icon :class="$style.menuIcon" width="23" color="#1a1a32" cursor="pointer" />
+      <ShoppingCart01Icon width="23" height="23" color="white" cursor="pointer" />
     </nav>
 
-    <aside :class="$style.subMenuContainer" v-show="showSubmenu">
-      <div role="user-info">
+    <section :class="$style['sub-menu-container']" v-show="showSubmenu">
+      <aside :class="$style['sub-menu-container__user-info']">
         <UserStatusIcon width="70" height="70" color="#1a1a32" />
         <p>
-          <span style="font-weight: bold">Bienvenido, </span> Ingresa con tu cuenta de google para
-          poder ver tus compras, carrito de compras y favoritos.
+          <strong> Bienvenido, </strong> Ingresa con tu cuenta de google para poder ver tus compras,
+          carrito de compras y favoritos.
         </p>
-      </div>
+      </aside>
 
-      <div role="login-button">
+      <aside :class="$style['sub-menu-container__login-button']">
         <button type="button">Ingresar</button>
-      </div>
+      </aside>
 
-      <div role="alcoholics-beverages-list">
+      <aside :class="$style['sub-menu-container__alcoholics-beverages-list']">
         <div
           v-for="item in alcoholicsBeverages"
-          role="alcoholic-beverage-detail"
+          :class="$style['sub-menu-container__alcoholics-beverages-list__detail']"
           v-bind:key="item.id"
         >
           <component v-bind:is="item.icon" width="20" color="#1a1a32" />
           <p>{{ item.text }}</p>
         </div>
-      </div>
+      </aside>
 
-      <div role="platform-links">
-        <div v-for="item in platformLinks" role="platform-link" v-bind:key="item.id">
+      <aside :class="$style['sub-menu-container__platform-links']">
+        <div
+          v-for="item in platformLinks"
+          :class="$style['sub-menu-container__platform-links__link']"
+          v-bind:key="item.id"
+        >
           <component v-bind:is="item.icon" width="20" color="#1a1a32" />
           <p>{{ item.text }}</p>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </section>
   </main>
 
   <!-- _____________________________________________ -->
   <!-- Desktop view -->
   <!-- _____________________________________________ -->
-  <main :class="$style.desktopContainer">
-    <nav :class="$style.navigationContentInColumn1">
-      <div>
+  <main :class="$style['desktop-container']">
+    <nav :class="$style['navigation-content-in-column1']">
+      <router-link to="/">
         <img src="@/assets/images/primary-logo.png" width="150" />
-      </div>
+      </router-link>
 
-      <label :class="$style.inputContainer" for="search">
-        <Home01Icon width="22" />
+      <label :class="$style['navigation-content-in-column1__input-container']" for="search">
+        <QuillWrite01Icon width="22" />
 
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Buscar producto"
           id="search"
           name="search"
           style="font-family: 'Inter', sans-serif"
@@ -177,16 +179,20 @@ const toggleSubmenu = () => {
       <img src="@/assets/images/notice.png" width="100%" height="38" />
     </nav>
 
-    <nav :class="$style.navigationContentInColumn2">
-      <div role="location-data">
+    <nav :class="$style['navigation-content-in-column2']">
+      <aside :class="$style['navigation-content-in-column2__location-data']">
         <LocationShare01Icon width="30" height="30" color="#2f2f49" />
         <div>
-          <p role="user-name-location">Send to Cristian</p>
-          <p role="address">Kr 8E # 14-103</p>
+          <p :class="$style['navigation-content-in-column2__location-data__user-name-location']">
+            Send to Cristian
+          </p>
+          <p :class="$style['navigation-content-in-column2__location-data__address']">
+            Kr 8E # 14-103
+          </p>
         </div>
-      </div>
+      </aside>
 
-      <div role="alcoholics-beverages-list">
+      <aside :class="$style['navigation-content-in-column2__alcoholics-beverages-list']">
         <div
           :style="
             item.id === 1
@@ -196,57 +202,60 @@ const toggleSubmenu = () => {
                 : ''
           "
           v-for="item in alcoholicsBeverages"
-          role="alcoholic-beverage-detail"
+          :class="$style['navigation-content-in-column2__alcoholic-beverage-list__detail']"
           v-bind:key="item.id"
         >
           <p>{{ item.text }}</p>
         </div>
-      </div>
+      </aside>
 
-      <div role="platform-links">
-        <Notification03Icon width="20" color="#1a1a32" cursor="pointer" />
-        <ShoppingBasket01Icon width="20" color="#1a1a32" cursor="pointer" />
-        <p style="font-size: 12px; cursor: pointer">Mis compras</p>
-        <p style="font-size: 12px; cursor: pointer">Favoritos</p>
-      </div>
+      <aside :class="$style['navigation-content-in-column2__platform-links']">
+        <Notification03Icon width="20" height="20" color="white" cursor="pointer" />
+        <ShoppingBasket01Icon width="20" height="20" color="white" cursor="pointer" />
+
+        <p>Mis compras</p>
+        <p>Favoritos</p>
+      </aside>
     </nav>
   </main>
 </template>
 
 <style module>
+/* _____________________________________________ */
 /* Mobile view */
+/* _____________________________________________ */
 
-.desktopContainer {
+.desktop-container {
   display: none;
 }
 
-.mobileContainer {
+.mobile-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffe600;
-  padding: 15px 0px;
   box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
-.navContent {
-  display: flex;
+.nav-content {
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
   align-items: center;
-  justify-content: space-around;
-  gap: 10px;
+  gap: 15px;
+  background: #1a1a32;
+  padding: 15.5px 15px;
 }
 
-.inputContainer {
+.nav-content__input-container {
   display: flex;
   align-items: center;
   gap: 13px;
   padding: 6px 15px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 17px;
 }
 
-.inputContainer input {
+.nav-content__input-container input {
   color: #1a1a32;
   padding-left: 10px;
   width: 100%;
@@ -257,7 +266,7 @@ const toggleSubmenu = () => {
   outline: none;
 }
 
-.subMenuContainer {
+.sub-menu-container {
   position: fixed;
   top: 65px;
   left: 0;
@@ -267,19 +276,19 @@ const toggleSubmenu = () => {
   border-top: 1px solid #ccc;
 }
 
-.subMenuContainer div[role='user-info'] {
+.sub-menu-container__user-info {
   display: flex;
   align-items: center;
   gap: 15px;
   padding: 1px 20px;
 }
 
-.subMenuContainer div[role='user-info'] p {
+.sub-menu-container__user-info p {
   font-size: 13px;
   color: #1a1a32;
 }
 
-.subMenuContainer div[role='login-button'] {
+.sub-menu-container__login-button {
   display: flex;
   justify-content: center;
   margin-top: 15px;
@@ -287,7 +296,7 @@ const toggleSubmenu = () => {
   margin-right: 20px;
 }
 
-.subMenuContainer div[role='login-button'] button {
+.sub-menu-container__login-button button {
   padding: 12px 0px;
   width: 100%;
   background: #1a1a32;
@@ -299,7 +308,7 @@ const toggleSubmenu = () => {
   cursor: pointer;
 }
 
-.subMenuContainer div[role='alcoholics-beverages-list'] {
+.sub-menu-container__alcoholics-beverages-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -311,7 +320,7 @@ const toggleSubmenu = () => {
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
 }
 
-.subMenuContainer div[role='alcoholic-beverage-detail'] {
+.sub-menu-container__alcoholics-beverages-list__detail {
   display: flex;
   align-items: center;
   font-size: 13px;
@@ -321,11 +330,11 @@ const toggleSubmenu = () => {
   transition: background-color 0.2s;
 }
 
-.subMenuContainer div[role='alcoholic-beverage-detail']:hover {
+.sub-menu-container__alcoholics-beverages-list__detail:hover {
   background-color: rgba(77, 77, 240, 0.1);
 }
 
-.subMenuContainer div[role='platform-links'] {
+.sub-menu-container__platform-links {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -336,7 +345,7 @@ const toggleSubmenu = () => {
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
 }
 
-.subMenuContainer div[role='platform-link'] {
+.sub-menu-container__platform-links__link {
   display: flex;
   align-items: center;
   font-size: 13px;
@@ -346,87 +355,116 @@ const toggleSubmenu = () => {
   transition: background-color 0.2s;
 }
 
-.subMenuContainer div[role='platform-link']:hover {
+.sub-menu-container__platform-links__link:hover {
   background-color: rgba(77, 77, 240, 0.1);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
+  /* _____________________________________________ */
   /* Desktop view */
+  /* _____________________________________________ */
 
-  .mobileContainer {
+  .mobile-container {
     display: none;
   }
 
-  .desktopContainer {
+  .desktop-container {
     display: block;
     padding: 21px 7%;
     position: relative;
-    background: #ffe600;
+    background: #1a1a32;
     box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3) !important;
   }
 
-  .navigationContentInColumn1 {
+  .navigation-content-in-column1 {
     display: grid;
     grid-template-columns: 0.8fr 2fr 1.3fr;
     gap: 30px;
   }
 
-  .inputContainer {
-    height: 27px;
+  .navigation-content-in-column1__input-container {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0px 15px;
+    background-color: white;
+    border-radius: 17px;
+    height: 36px;
   }
 
-  .navigationContentInColumn2 {
+  .navigation-content-in-column1__input-container input {
+    color: #1a1a32;
+    padding-left: 10px;
+    width: 100%;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid #ccc;
+    outline: none;
+  }
+
+  .navigation-content-in-column2 {
     display: grid;
     grid-template-columns: 0.8fr 2fr 1.3fr;
     gap: 30px;
   }
 
-  .navigationContentInColumn2 div[role='location-data'] {
+  .navigation-content-in-column2__location-data {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .navigationContentInColumn2 div[role='location-data'] p[role='user-name-location'] {
+  .navigation-content-in-column2__location-data__user-name-location {
     font-size: 12px;
-    color: #2f2f49;
+    color: white;
     margin: 0px;
   }
 
-  .navigationContentInColumn2 div[role='location-data'] p[role='address'] {
+  .navigation-content-in-column2__location-data__address {
     font-size: 12px;
-    color: #1a1a32;
+    color: white;
     margin: 0px;
   }
 
-  .navigationContentInColumn2 div[role='alcoholics-beverages-list'] {
+  .navigation-content-in-column2__alcoholics-beverages-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
 
-  .navigationContentInColumn2 div[role='alcoholic-beverage-detail'] {
+  .navigation-content-in-column2__alcoholic-beverage-list__detail {
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    color: #1a1a32;
+    color: white;
     border-right: 2px dashed #343434;
     border-left: 2px dashed #343434;
     padding: 0px 20px;
     transition: background-color 0.2s;
   }
 
-  .navigationContentInColumn2 div[role='alcoholic-beverage-detail']:hover {
-    color: #58587d;
+  .navigation-content-in-column2__alcoholic-beverage-list__detail:hover {
+    text-decoration: underline;
     transition: background-color 0.2s;
   }
 
-  .navigationContentInColumn2 div[role='platform-links'] {
+  .navigation-content-in-column2__platform-links {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 25px;
     align-items: center;
+  }
+
+  .navigation-content-in-column2__platform-links p {
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .navigation-content-in-column2__platform-links p:hover {
+    text-decoration: underline;
   }
 }
 </style>

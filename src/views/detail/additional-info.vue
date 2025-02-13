@@ -11,24 +11,10 @@ const toggleAdditionalInfo = () => {
 </script>
 
 <template>
-  <main style="margin-bottom: 35px">
-    <aside
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #f4f4f4;
-        padding: 10px 15px;
-        margin-top: 25px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-top: 1px solid rgb(189, 188, 188);
-        border-left: 1px solid rgb(189, 188, 188);
-        border-right: 1px solid rgb(189, 188, 188);
-        border-bottom: 1px solid rgb(189, 188, 188);
-      "
-    >
-      <h3 style="margin: 0px">Additional info</h3>
+  <main :class="$style['additional-info']">
+    <aside :class="$style['additional-info__slider']">
+      <h4>Additional info</h4>
+
       <ArrowDown01Icon
         width="40"
         height="40"
@@ -38,34 +24,28 @@ const toggleAdditionalInfo = () => {
       />
     </aside>
 
-    <aside v-show="showAdditionalInfo" :class="$style.additionalInfo">
-      <div :class="$style.additionalInfoSection">
-        <strong :class="$style.detailInfoTitle">Referencia</strong>
-        <p :class="$style.detailInfoText">Whisky Single Malt 100% ( 750 ML )</p>
+    <aside v-show="showAdditionalInfo" :class="$style['additional-info__content']">
+      <div :class="$style['additional-info__content__section']">
+        <strong :class="$style['additional-info__content__section__title']">Referencia</strong>
+        <p :class="$style['additional-info__content__section__text']">
+          Whisky Single Malt 100% ( 750 ML )
+        </p>
         <hr />
       </div>
 
-      <div :class="$style.additionalInfoSection">
-        <strong :class="$style.detailInfoTitle">Referencia</strong>
-        <p :class="$style.detailInfoText">Whisky Single Malt 100% ( 750 ML )</p>
+      <div :class="$style['additional-info__content__section']">
+        <strong :class="$style['additional-info__content__section__title']">Referencia</strong>
+        <p :class="$style['additional-info__content__section__text']">
+          Whisky Single Malt 100% ( 750 ML )
+        </p>
         <hr />
       </div>
 
-      <div :class="$style.additionalInfoSection">
-        <strong :class="$style.detailInfoTitle">Referencia</strong>
-        <p :class="$style.detailInfoText">Whisky Single Malt 100% ( 750 ML )</p>
-        <hr />
-      </div>
-
-      <div :class="$style.additionalInfoSection">
-        <strong :class="$style.detailInfoTitle">Referencia</strong>
-        <p :class="$style.detailInfoText">Whisky Single Malt 100% ( 750 ML )</p>
-        <hr />
-      </div>
-
-      <div :class="$style.additionalInfoSection">
-        <strong :class="$style.detailInfoTitle">Referencia</strong>
-        <p :class="$style.detailInfoText">Whisky Single Malt 100% ( 750 ML )</p>
+      <div :class="$style['additional-info__content__section']">
+        <strong :class="$style['additional-info__content__section__title']">Referencia</strong>
+        <p :class="$style['additional-info__content__section__text']">
+          Whisky Single Malt 100% ( 750 ML )
+        </p>
         <hr />
       </div>
     </aside>
@@ -73,7 +53,30 @@ const toggleAdditionalInfo = () => {
 </template>
 
 <style lang="css" module>
-.additionalInfo {
+.additional-info {
+  margin-top: 35px;
+}
+
+.additional-info__slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 10px 15px;
+  margin-top: 25px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 1px solid rgb(189, 188, 188);
+  border-left: 1px solid rgb(189, 188, 188);
+  border-right: 1px solid rgb(189, 188, 188);
+  border-bottom: 1px solid rgb(189, 188, 188);
+}
+
+.additional-info__slider h4 {
+  margin: 0;
+}
+
+.additional-info__content {
   background: #f4f4f4;
   font-size: 12px;
   padding-top: 13px;
@@ -81,16 +84,16 @@ const toggleAdditionalInfo = () => {
   border-right: 1px solid rgb(189, 188, 188);
 }
 
-.additionalInfoSection {
+.additional-info__content__section {
   padding: 0 0px;
 }
 
-.detailInfoTitle {
+.additional-info__content__section__title {
   margin: 0px;
   padding: 0px 15px;
 }
 
-.detailInfoText {
+.additional-info__content__section__text {
   margin-top: 5px;
   margin-bottom: 15px;
   padding: 0px 15px;

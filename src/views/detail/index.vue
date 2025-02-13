@@ -3,57 +3,31 @@ import { useRoute } from 'vue-router'
 import { ArrowLeft02Icon } from 'hugeicons-vue'
 
 // Components
-// import productDetail from './product-detail.vue'
-import productSummary from './product-summary.vue'
-import additionalInfo from './additional-info.vue'
+import ProductSummary from './product-summary.vue'
+import AdditionalInfo from './additional-info.vue'
 
 const route = useRoute()
-
-// import Cards from '@/components/custom/cards/Cards.vue'
-
 console.log(route.params)
-
-// const beverageId = this.$router.params.id;
-
-// this.$router.params.id
-
-// console.log($router.params.id);
-// import HelloWorld from '@/components/HelloWorld.vue'
-
-//312B2F
-
-// export default {
-//   showAdditionalInfo,
-//   toggleAdditionalInfo,
-// }
 </script>
 
 <template>
-  <main :class="$style.initialContainer">
-    <section :class="$style.goBackContainer">
-      <router-link to="/" :class="$style.goBack">
-        <ArrowLeft02Icon width="20" height="20" color="#1a1a32" />
+  <main :class="$style['product-page']">
+    <section :class="$style['product-page__go-back']">
+      <router-link to="/" :class="$style['product-page__go-back-link']">
+        <ArrowLeft02Icon :class="$style['product-page__icon']" />
         <strong> Go Back </strong>
       </router-link>
     </section>
 
-    <h5 :class="$style.title1">Whisky Single Malt 100%</h5>
+    <h5 :class="$style['product-page__title product-page__title--mobile']">
+      Whisky Single Malt 100%
+    </h5>
 
-    <section :class="$style.productSection">
-      <aside :class="$style.thumbnailContainer">
+    <section :class="$style['product-page__details']">
+      <aside :class="$style['product-page__thumbnails']">
         <img
-          width="100%"
-          height="100"
-          style="object-fit: cover"
-          src="@/assets/images/beverage-3.webp"
-        />
-        <img
-          width="100%"
-          height="100"
-          style="object-fit: cover"
-          src="@/assets/images/beverage-3.webp"
-        />
-        <img
+          v-for="n in 3"
+          :key="n"
           width="100%"
           height="100"
           style="object-fit: cover"
@@ -61,146 +35,127 @@ console.log(route.params)
         />
       </aside>
 
-      <aside>
-        <div :class="$style.productImageContainer">
-          <img :class="$style.productImage" src="@/assets/images/beverage-3.webp" />
-        </div>
+      <aside :class="$style['product-page__image-container']">
+        <img
+          src="@/assets/images/beverage-3.webp"
+          alt="Whisky Bottle"
+          :class="$style['product-page__image']"
+        />
       </aside>
 
-      <aside>
-        <h5 :class="$style.title2">Whisky Single Malt 100%</h5>
-        <productSummary />
+      <aside :class="$style['product-page__info']">
+        <h5 :class="$style['product-page__title product-page__title--desktop']">
+          Whisky Single Malt 100%
+        </h5>
+        <ProductSummary />
       </aside>
     </section>
 
-    <additionalInfo />
+    <AdditionalInfo />
   </main>
-
-  <!-- <main :class="$style.mobileContainer">
-    <section :class="$style.goBackContainer">
-      <router-link to="/" :class="$style.goBack">
-        <ArrowLeft02Icon width="20" height="20" color="#1a1a32" />
-        <strong> Go Back </strong>
-      </router-link>
-    </section>
-
-    <h5 :class="$style.title">Whisky Single Malt 100% ( 750 ML )</h5>
-
-    <div :class="$style.productImageContainer">
-      <img :class="$style.productImage" src="@/assets/images/beverage-2.jpg" />
-    </div>
-
-    <h5 :class="$style.title">Whisky Single Malt 100% ( 750 ML )</h5>
-
-    <productSummary />
-    <additionalInfo />
-  </main> -->
-
-  <!-- <main :class="$style.desktopContainer">
-    <CamperIcon />
-    <h5>Desktop Container</h5>
-  </main> -->
 </template>
 
 <style module>
-/* ---- Mobile view ---- */
-
-.initialContainer {
+.product-page {
   padding: 20px 15px;
 }
 
-.goBackContainer {
+/* Go Back Section */
+.product-page__go-back {
   display: flex;
   align-items: center;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
-.goBack {
-  text-decoration: none;
+.product-page__go-back-link {
   display: flex;
-  justify-content: flex-start;
-  color: #1a1a32;
-  font-size: 14px;
-  cursor: pointer;
   align-items: center;
   gap: 5px;
+  color: #1a1a32;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.goBack:hover {
+.product-page__go-back-link:hover {
   text-decoration: underline;
 }
 
-.title1 {
-  display: initial;
+.product-page__icon {
+  width: 20px;
+  height: 20px;
+  fill: #1a1a32;
+}
+
+/* Titles */
+.product-page__title {
   font-weight: 500;
   color: #1a1a32;
   font-size: 19px;
-  margin-top: 5px;
   margin-bottom: 20px;
 }
 
-.title2 {
+.product-page__title--mobile {
+  display: block;
+  margin-top: 5px;
+}
+
+.product-page__title--desktop {
   display: none;
 }
 
-.mobileContainer {
-  display: block;
-  margin: 0px 15px;
-  padding-top: 15px;
-}
-
-.productImageContainer {
-  display: flex;
-  justify-content: center;
-  margin: 0px 0px;
-}
-
-.productImage {
-  width: 100%;
-  max-width: 350px;
-}
-
-.productSection {
+/* Product Details */
+.product-page__details {
   display: flex;
   flex-direction: column;
 }
 
-.thumbnailContainer {
+.product-page__thumbnails {
   display: none;
 }
 
+.product-page__thumbnail {
+  display: flex;
+  justify-content: center;
+}
+
+.product-page__image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.product-page__image {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Responsive for Desktop */
 @media (min-width: 900px) {
-  /* ---- Desktop view ---- */
-  .title1 {
+  .product-page__title--mobile {
     display: none;
   }
 
-  .title2 {
-    display: initial;
-    font-weight: 500;
-    color: #1a1a32;
-    font-size: 19px;
+  .product-page__title--desktop {
+    display: block;
     margin-bottom: 10px;
   }
 
-  .productImage {
-    width: 100%;
-    height: 100%;
-    max-width: 500px;
-  }
-
-  .productSection {
+  .product-page__details {
     display: grid;
     grid-template-columns: 10% 50% 40%;
     gap: 10px;
-    margin: 0px 5%;
-    margin-top: 10px;
+    margin: 10px 5% 0;
   }
 
-  .thumbnailContainer {
+  .product-page__thumbnails {
     display: flex;
     flex-direction: column;
     gap: 15px;
+  }
+
+  .product-page__image {
+    max-width: 500px;
+    height: auto;
   }
 }
 </style>
