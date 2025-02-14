@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import {
   Menu01Icon,
   LocationShare01Icon,
@@ -15,7 +15,6 @@ import {
 
 // Typescript types
 import type { NavbarItem } from '@/schemas/schemas.ts'
-
 const showSubmenu = ref(false)
 
 const alcoholicsBeverages: NavbarItem[] = [
@@ -49,6 +48,21 @@ const alcoholicsBeverages: NavbarItem[] = [
     icon: MilkBottleIcon,
     text: 'Vino',
   },
+  {
+    id: 7,
+    icon: MilkBottleIcon,
+    text: 'Refrescos',
+  },
+  {
+    id: 8,
+    icon: MilkBottleIcon,
+    text: 'Snacks',
+  },
+  {
+    id: 9,
+    icon: MilkBottleIcon,
+    text: 'Aguas',
+  },
 ]
 
 const platformLinks: NavbarItem[] = [
@@ -74,9 +88,17 @@ const platformLinks: NavbarItem[] = [
   },
 ]
 
-const toggleSubmenu = () => {
+const toggleSubmenu = (): void => {
   showSubmenu.value = !showSubmenu.value
 }
+
+watch(showSubmenu, (newValue: boolean): void => {
+  if (newValue) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'auto'
+  }
+})
 </script>
 
 <template>
@@ -137,7 +159,8 @@ const toggleSubmenu = () => {
           :class="$style['sub-menu-container__alcoholics-beverages-list__detail']"
           v-bind:key="item.id"
         >
-          <component v-bind:is="item.icon" width="20" color="#1a1a32" />
+          <img src="@/assets/images/alcoholic-beverage-icon.png" width="28" />
+          <!-- <component v-bind:is="item.icon" width="20" color="#1a1a32" /> -->
           <p>{{ item.text }}</p>
         </div>
       </aside>
@@ -311,11 +334,14 @@ const toggleSubmenu = () => {
 .sub-menu-container__alcoholics-beverages-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
   margin-top: 22px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background: white;
+  height: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  /* background: white; */
   border-top: 1px solid #e5dddd;
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
 }
@@ -340,7 +366,7 @@ const toggleSubmenu = () => {
   gap: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background: white;
+  /* background: white; */
   border-top: 1px solid #e5dddd;
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
 }
