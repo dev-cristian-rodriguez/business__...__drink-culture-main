@@ -20,7 +20,7 @@ import Navbar from './inc/Navbar.vue'
   margin-top: 65px;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .childrenComponent {
     margin-top: 0px;
   }

@@ -63,6 +63,21 @@ const alcoholicsBeverages: NavbarItem[] = [
     icon: MilkBottleIcon,
     text: 'Aguas',
   },
+  {
+    id: 10,
+    icon: MilkBottleIcon,
+    text: 'test',
+  },
+  {
+    id: 11,
+    icon: MilkBottleIcon,
+    text: 'testing2',
+  },
+  {
+    id: 12,
+    icon: MilkBottleIcon,
+    text: 'testing3',
+  },
 ]
 
 const platformLinks: NavbarItem[] = [
@@ -188,7 +203,7 @@ watch(showSubmenu, (newValue: boolean): void => {
       </router-link>
 
       <label :class="$style['navigation-content-in-column1__input-container']" for="search">
-        <QuillWrite01Icon width="22" />
+        <QuillWrite01Icon width="22" height="22" color="#1a1a32" />
 
         <input
           type="text"
@@ -220,7 +235,7 @@ watch(showSubmenu, (newValue: boolean): void => {
           :style="
             item.id === 1
               ? 'border-left: 3.5px dashed #343434'
-              : item?.id === 6
+              : item?.id === alcoholicsBeverages.length
                 ? 'border-right: 3.5px dashed #343434'
                 : ''
           "
@@ -233,11 +248,36 @@ watch(showSubmenu, (newValue: boolean): void => {
       </aside>
 
       <aside :class="$style['navigation-content-in-column2__platform-links']">
-        <Notification03Icon width="20" height="20" color="white" cursor="pointer" />
-        <ShoppingBasket01Icon width="20" height="20" color="white" cursor="pointer" />
+        <div style="position: relative">
+          <UserStatusIcon :class="$style['navigation-content-in-column2__platform-links__icon']" />
+          <p>Mi cuenta</p>
+        </div>
 
-        <p>Mis compras</p>
-        <p>Favoritos</p>
+        <div style="position: relative">
+          <ShoppingBasket01Icon
+            :class="$style['navigation-content-in-column2__platform-links__icon']"
+          />
+          <p>Mis compras</p>
+        </div>
+
+        <div style="position: relative">
+          <FavouriteIcon :class="$style['navigation-content-in-column2__platform-links__icon']" />
+          <p>Favoritos</p>
+        </div>
+
+        <div style="position: relative">
+          <Notification03Icon
+            :class="$style['navigation-content-in-column2__platform-links__icon']"
+          />
+          <p>Notificaciones</p>
+        </div>
+
+        <div style="position: relative">
+          <ShoppingCart01Icon
+            :class="$style['navigation-content-in-column2__platform-links__icon']"
+          />
+          <p>Carrito</p>
+        </div>
       </aside>
     </nav>
   </main>
@@ -338,10 +378,8 @@ watch(showSubmenu, (newValue: boolean): void => {
   margin-top: 22px;
   padding-top: 15px;
   padding-bottom: 15px;
-  height: 100%;
   max-height: 240px;
   overflow-y: auto;
-  /* background: white; */
   border-top: 1px solid #e5dddd;
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
 }
@@ -366,7 +404,6 @@ watch(showSubmenu, (newValue: boolean): void => {
   gap: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
-  /* background: white; */
   border-top: 1px solid #e5dddd;
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
 }
@@ -431,7 +468,7 @@ watch(showSubmenu, (newValue: boolean): void => {
 
   .navigation-content-in-column2 {
     display: grid;
-    grid-template-columns: 0.8fr 2fr 1.3fr;
+    grid-template-columns: 12% 1fr 25%;
     gap: 30px;
   }
 
@@ -455,8 +492,7 @@ watch(showSubmenu, (newValue: boolean): void => {
 
   .navigation-content-in-column2__alcoholics-beverages-list {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    overflow-x: auto;
   }
 
   .navigation-content-in-column2__alcoholic-beverage-list__detail {
@@ -485,12 +521,53 @@ watch(showSubmenu, (newValue: boolean): void => {
 
   .navigation-content-in-column2__platform-links p {
     font-size: 12px;
+    color: #1a1a32;
+    position: absolute;
+    white-space: nowrap;
+    background: white;
+    padding: 3px 7px;
+    border-radius: 5px;
+  }
+
+  .navigation-content-in-column2__platform-links__icon {
     cursor: pointer;
+    width: 23;
+    height: 23;
     color: white;
   }
 
-  .navigation-content-in-column2__platform-links p:hover {
-    text-decoration: underline;
+  .navigation-content-in-column2__platform-links__icon:hover ~ p {
+    animation: showText 0.3s forwards;
+  }
+
+  .navigation-content-in-column2__platform-links__icon:not(:hover) ~ p {
+    animation: hideText 0.3s forwards;
+  }
+
+  @keyframes showText {
+    0% {
+      display: none;
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes hideText {
+    0% {
+      opacity: 1;
+      transform: translateY(-15px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
   }
 }
 </style>
