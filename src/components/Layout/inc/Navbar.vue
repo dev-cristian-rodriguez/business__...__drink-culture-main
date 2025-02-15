@@ -540,9 +540,9 @@ watch(showSubmenu, (newValue: boolean): void => {
     animation: showText 0.3s forwards;
   }
 
-  /* .navigation-content-in-column2__platform-links__icon:not(:hover) ~ p {
+  .navigation-content-in-column2__platform-links__icon:not(:hover) ~ p {
     animation: hideText 0.3s forwards;
-  } */
+  }
 
   @keyframes showText {
     0% {

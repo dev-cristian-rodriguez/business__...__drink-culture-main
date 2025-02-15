@@ -24,6 +24,7 @@
 }
 
 .container h1 {
+  font-weight: 600;
   margin: 0px;
   text-decoration: underline;
   text-align: center;
