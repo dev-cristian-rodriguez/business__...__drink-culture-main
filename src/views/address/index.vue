@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import Card from '@/components/custom/cards/card.vue'
+// import vSelect from 'vue-select'
 </script>
 
 <template>
@@ -14,6 +14,8 @@
 
       <aside :class="[$style['form-container__child-block']]">
         <label> Departamento </label>
+        <!-- <component :is="vSelect" :options="['department 1', 'department 2', 'department 3']"></component> -->
+        <!-- <v-select :options="['Canada', 'United States']"></v-select> -->
         <select>
           <option value="">Seleccionar</option>
           <option value="1">Departamento 1</option>
@@ -45,11 +47,6 @@
           <option value="2">Avenida</option>
           <option value="3">Manzana</option>
         </select>
-      </aside>
-
-      <aside :class="[$style['form-container__child-block']]">
-        <label for="street"> Calle </label>
-        <input type="text" id="street" name="street" />
       </aside>
 
       <aside :class="[$style['form-container__child-block']]">
