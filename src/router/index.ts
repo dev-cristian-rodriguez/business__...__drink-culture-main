@@ -34,6 +34,12 @@ const router = createRouter({
     },
 
     {
+      path: '/shopping-cart',
+      name: 'shopping-cart',
+      component: () => import('@/views/shopping-cart/index.vue'),
+    },
+
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: () => import('@/components/common/notFound/notFound.vue'),
