@@ -152,7 +152,9 @@ watch(showSubmenu, (newValue: boolean): void => {
         />
       </label>
 
-      <ShoppingCart01Icon width="23" height="23" color="white" cursor="pointer" />
+      <router-link to="/shopping-cart">
+        <ShoppingCart01Icon width="23" height="23" color="white" cursor="pointer" />
+      </router-link>
     </nav>
 
     <section :class="$style['sub-menu-container']" v-show="showSubmenu">
@@ -298,6 +300,7 @@ watch(showSubmenu, (newValue: boolean): void => {
   left: 0;
   width: 100%;
   box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.4);
+  z-index: 3;
 }
 
 .nav-content {

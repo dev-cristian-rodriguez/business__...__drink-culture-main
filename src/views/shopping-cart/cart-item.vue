@@ -45,7 +45,7 @@
           <p style="color: blue; font-weight: 700; font-size: 20px">+</p>
         </div>
 
-        <p :class="$style['cart-item-container__product-info__product-price']">$ 100.00</p>
+        <p :class="$style['cart-item-container__product-info__product-price']">$ 100.000</p>
       </section>
 
       <section :class="$style['cart-item-container__shipping-cost']">
@@ -59,6 +59,7 @@
 <style module>
 /* Mobile view */
 .cart-item-container {
+  background: white;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
