@@ -193,82 +193,86 @@ watch(showSubmenu, (newValue: boolean): void => {
   <!-- Desktop view -->
   <!-- _____________________________________________ -->
   <main :class="$style['desktop-container']">
-    <nav :class="$style['navigation-content-in-column1']">
-      <router-link to="/">
-        <img src="@/assets/images/primary-logo.png" width="150" />
-      </router-link>
+    <nav :class="$style['navigation-content']">
+      <section :class="$style['navigation-content-column-1']">
+        <router-link to="/">
+          <img src="@/assets/images/primary-logo.png" width="150" />
+        </router-link>
 
-      <label :class="$style['navigation-content-in-column1__input-container']" for="search">
-        <QuillWrite01Icon width="22" height="22" color="#1a1a32" />
+        <aside :class="$style['navigation-content-column-1__location-data']">
+          <LocationShare01Icon width="30" height="30" color="#2f2f49" />
+          <div>
+            <p :class="$style['navigation-content-column-1__location-data__user-name-location']">
+              Send to Cristian
+            </p>
+            <p :class="$style['navigation-content-column-1__location-data__address']">
+              Kr 8E # 14-103
+            </p>
+          </div>
+        </aside>
+      </section>
 
-        <input type="text" placeholder="Buscar producto" id="search" name="search" />
-      </label>
+      <section :class="$style['navigation-content-column-2']">
+        <label :class="$style['navigation-content-column-2__input-container']" for="search">
+          <QuillWrite01Icon width="22" height="22" color="#1a1a32" />
 
-      <img src="@/assets/images/notice.png" width="100%" height="38" />
-    </nav>
+          <input type="text" placeholder="Buscar producto" id="search" name="search" />
+        </label>
 
-    <nav :class="$style['navigation-content-in-column2']">
-      <aside :class="$style['navigation-content-in-column2__location-data']">
-        <LocationShare01Icon width="30" height="30" color="#2f2f49" />
-        <div>
-          <p :class="$style['navigation-content-in-column2__location-data__user-name-location']">
-            Send to Cristian
-          </p>
-          <p :class="$style['navigation-content-in-column2__location-data__address']">
-            Kr 8E # 14-103
-          </p>
-        </div>
-      </aside>
+        <aside :class="$style['navigation-content-column-2__alcoholics-beverages-list']">
+          <div
+            :style="
+              item.id === 1
+                ? 'border-left: 3.5px dashed #343434'
+                : item?.id === alcoholicsBeverages.length
+                  ? 'border-right: 3.5px dashed #343434'
+                  : ''
+            "
+            v-for="item in alcoholicsBeverages"
+            :class="$style['navigation-content-column-2__alcoholic-beverage-list__detail']"
+            v-bind:key="item.id"
+          >
+            <p>{{ item.text }}</p>
+          </div>
+        </aside>
+      </section>
 
-      <aside :class="$style['navigation-content-in-column2__alcoholics-beverages-list']">
-        <div
-          :style="
-            item.id === 1
-              ? 'border-left: 3.5px dashed #343434'
-              : item?.id === alcoholicsBeverages.length
-                ? 'border-right: 3.5px dashed #343434'
-                : ''
-          "
-          v-for="item in alcoholicsBeverages"
-          :class="$style['navigation-content-in-column2__alcoholic-beverage-list__detail']"
-          v-bind:key="item.id"
-        >
-          <p>{{ item.text }}</p>
-        </div>
-      </aside>
+      <section :class="$style['navigation-content-column-3']">
+        <img src="@/assets/images/notice.png" width="100%" height="38" />
 
-      <aside :class="$style['navigation-content-in-column2__platform-links']">
-        <div style="position: relative">
-          <UserStatusIcon :class="$style['navigation-content-in-column2__platform-links__icon']" />
-          <p>Mi cuenta</p>
-        </div>
+        <aside :class="$style['navigation-content-column-3__platform-links']">
+          <div style="position: relative">
+            <UserStatusIcon :class="$style['navigation-content-column-3__platform-links__icon']" />
+            <p>Mi cuenta</p>
+          </div>
 
-        <div style="position: relative">
-          <ShoppingBasket01Icon
-            :class="$style['navigation-content-in-column2__platform-links__icon']"
-          />
-          <p>Mis compras</p>
-        </div>
+          <div style="position: relative">
+            <ShoppingBasket01Icon
+              :class="$style['navigation-content-column-3__platform-links__icon']"
+            />
+            <p>Mis compras</p>
+          </div>
 
-        <div style="position: relative">
-          <FavouriteIcon :class="$style['navigation-content-in-column2__platform-links__icon']" />
-          <p>Favoritos</p>
-        </div>
+          <div style="position: relative">
+            <FavouriteIcon :class="$style['navigation-content-column-3__platform-links__icon']" />
+            <p>Favoritos</p>
+          </div>
 
-        <div style="position: relative">
-          <Notification03Icon
-            :class="$style['navigation-content-in-column2__platform-links__icon']"
-          />
-          <p>Notificaciones</p>
-        </div>
+          <div style="position: relative">
+            <Notification03Icon
+              :class="$style['navigation-content-column-3__platform-links__icon']"
+            />
+            <p>Notificaciones</p>
+          </div>
 
-        <div style="position: relative">
-          <ShoppingCart01Icon
-            :class="$style['navigation-content-in-column2__platform-links__icon']"
-          />
-          <p>Carrito</p>
-        </div>
-      </aside>
+          <div style="position: relative">
+            <ShoppingCart01Icon
+              :class="$style['navigation-content-column-3__platform-links__icon']"
+            />
+            <p>Carrito</p>
+          </div>
+        </aside>
+      </section>
     </nav>
   </main>
 </template>
@@ -425,19 +429,57 @@ watch(showSubmenu, (newValue: boolean): void => {
 
   .desktop-container {
     display: block;
-    padding: 21px 7%;
+    padding: 21px 6%;
     position: relative;
     background: #1a1a32;
     box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3) !important;
   }
 
-  .navigation-content-in-column1 {
+  .navigation-content {
     display: grid;
-    grid-template-columns: 0.8fr 2fr 1.3fr;
+    justify-content: center;
+    grid-template-columns: 15% 55% 25%;
     gap: 30px;
   }
 
-  .navigation-content-in-column1__input-container {
+  /* Column 1 */
+  /* -------------------------------------------- */
+  .navigation-content-column-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navigation-content-column-1__location-data {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .navigation-content-column-1__location-data__user-name-location {
+    font-size: 12px;
+    color: white;
+    margin: 0px;
+  }
+
+  .navigation-content-column-1__location-data__address {
+    font-size: 12px;
+    color: white;
+    margin: 0px;
+  }
+  /* -------------------------------------------- */
+
+  /* Column 2 */
+  /* -------------------------------------------- */
+  .navigation-content-column-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navigation-content-column-2__input-container {
     display: flex;
     align-items: center;
     gap: 13px;
@@ -447,7 +489,7 @@ watch(showSubmenu, (newValue: boolean): void => {
     height: 36px;
   }
 
-  .navigation-content-in-column1__input-container input {
+  .navigation-content-column-2__input-container input {
     color: #1a1a32;
     padding-left: 10px;
     width: 100%;
@@ -459,36 +501,12 @@ watch(showSubmenu, (newValue: boolean): void => {
     font-family: 'Inter', sans-serif;
   }
 
-  .navigation-content-in-column2 {
-    display: grid;
-    grid-template-columns: 12% 1fr 25%;
-    gap: 30px;
-  }
-
-  .navigation-content-in-column2__location-data {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .navigation-content-in-column2__location-data__user-name-location {
-    font-size: 12px;
-    color: white;
-    margin: 0px;
-  }
-
-  .navigation-content-in-column2__location-data__address {
-    font-size: 12px;
-    color: white;
-    margin: 0px;
-  }
-
-  .navigation-content-in-column2__alcoholics-beverages-list {
+  .navigation-content-column-2__alcoholics-beverages-list {
     display: flex;
     overflow-x: auto;
   }
 
-  .navigation-content-in-column2__alcoholic-beverage-list__detail {
+  .navigation-content-column-2__alcoholic-beverage-list__detail {
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
@@ -499,12 +517,22 @@ watch(showSubmenu, (newValue: boolean): void => {
     transition: background-color 0.2s;
   }
 
-  .navigation-content-in-column2__alcoholic-beverage-list__detail:hover {
+  .navigation-content-column-2__alcoholic-beverage-list__detail:hover {
     text-decoration: underline;
     transition: background-color 0.2s;
   }
+  /* -------------------------------------------- */
 
-  .navigation-content-in-column2__platform-links {
+  /* Column 3 */
+  /* -------------------------------------------- */
+
+  .navigation-content-column-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .navigation-content-column-3__platform-links {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -512,7 +540,7 @@ watch(showSubmenu, (newValue: boolean): void => {
     align-items: center;
   }
 
-  .navigation-content-in-column2__platform-links p {
+  .navigation-content-column-3__platform-links p {
     font-size: 12px;
     color: #1a1a32;
     position: absolute;
@@ -522,20 +550,21 @@ watch(showSubmenu, (newValue: boolean): void => {
     border-radius: 5px;
   }
 
-  .navigation-content-in-column2__platform-links__icon {
+  .navigation-content-column-3__platform-links__icon {
     cursor: pointer;
     width: 23;
     height: 23;
     color: white;
   }
 
-  .navigation-content-in-column2__platform-links__icon:hover ~ p {
+  .navigation-content-column-3__platform-links__icon:hover ~ p {
     animation: showText 0.3s forwards;
   }
 
-  .navigation-content-in-column2__platform-links__icon:not(:hover) ~ p {
+  .navigation-content-column-3__platform-links__icon:not(:hover) ~ p {
     animation: hideText 0.3s forwards;
   }
+  /* -------------------------------------------- */
 
   @keyframes showText {
     0% {
