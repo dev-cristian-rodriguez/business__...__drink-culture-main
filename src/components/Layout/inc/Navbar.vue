@@ -143,13 +143,7 @@ watch(showSubmenu, (newValue: boolean): void => {
       <label :class="$style['nav-content__input-container']" for="search">
         <QuillWrite01Icon width="22" height="22" color="#1a1a32" />
 
-        <input
-          type="text"
-          placeholder="Buscar producto"
-          id="search"
-          name="search"
-          style="font-family: 'Inter', sans-serif"
-        />
+        <input type="text" placeholder="Buscar producto" id="search" name="search" />
       </label>
 
       <router-link to="/shopping-cart">
@@ -207,13 +201,7 @@ watch(showSubmenu, (newValue: boolean): void => {
       <label :class="$style['navigation-content-in-column1__input-container']" for="search">
         <QuillWrite01Icon width="22" height="22" color="#1a1a32" />
 
-        <input
-          type="text"
-          placeholder="Buscar producto"
-          id="search"
-          name="search"
-          style="font-family: 'Inter', sans-serif"
-        />
+        <input type="text" placeholder="Buscar producto" id="search" name="search" />
       </label>
 
       <img src="@/assets/images/notice.png" width="100%" height="38" />
@@ -330,6 +318,7 @@ watch(showSubmenu, (newValue: boolean): void => {
   border-bottom: none;
   border-left: 1px solid #ccc;
   outline: none;
+  font-family: 'Inter', sans-serif;
 }
 
 .sub-menu-container {
@@ -467,6 +456,7 @@ watch(showSubmenu, (newValue: boolean): void => {
     border-bottom: none;
     border-left: 1px solid #ccc;
     outline: none;
+    font-family: 'Inter', sans-serif;
   }
 
   .navigation-content-in-column2 {

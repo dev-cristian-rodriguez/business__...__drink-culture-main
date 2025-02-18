@@ -7,16 +7,18 @@ import shoppingResume from './shopping-resume.vue'
   <main :class="$style['main-container']">
     <h1 :class="$style['title']">Carrito de compras</h1>
 
-    <aside :class="$style['cart-item-container']">
-      <cartItem />
-      <cartItem />
-      <cartItem />
-      <cartItem />
-      <cartItem />
-      <cartItem />
-    </aside>
+    <div :class="$style['content']">
+      <aside :class="$style['content__cart-item-container']">
+        <cartItem />
+        <cartItem />
+        <cartItem />
+        <cartItem />
+        <cartItem />
+        <cartItem />
+      </aside>
 
-    <shoppingResume />
+      <shoppingResume />
+    </div>
   </main>
 </template>
 
@@ -33,7 +35,12 @@ import shoppingResume from './shopping-resume.vue'
   padding-top: 20px;
 }
 
-.cart-item-container {
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content__cart-item-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -45,7 +52,13 @@ import shoppingResume from './shopping-resume.vue'
     padding-top: 0px;
   }
 
-  .cart-item-container {
+  .content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .content__cart-item-container {
     margin-bottom: 0px;
   }
 }
