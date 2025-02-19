@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ArrowLeft01Icon, ArrowRight01Icon } from 'hugeicons-vue'
+
+// Components
 import Card from '@/components/custom/cards/card.vue'
 </script>
 
@@ -11,7 +14,28 @@ import Card from '@/components/custom/cards/card.vue'
 
     <!-- Desktop Images -->
     <aside :class="$style['image-container--desktop']">
-      <img src="@/assets/images/notice-1.png" width="100%" />
+      <img src="@/assets/images/notice-1.png" />
+      <img src="@/assets/images/notice-2.png" />
+      <img src="@/assets/images/notice-3.png" />
+      <img src="@/assets/images/notice-4.png" />
+
+      <div
+        :class="[
+          $style['image-container--desktop__arrow-container'],
+          $style['image-container--desktop__arrow-container--left'],
+        ]"
+      >
+        <ArrowLeft01Icon width="30" height="30" color="gray" />
+      </div>
+
+      <div
+        :class="[
+          $style['image-container--desktop__arrow-container'],
+          $style['image-container--desktop__arrow-container--right'],
+        ]"
+      >
+        <ArrowRight01Icon width="30" height="30" color="gray" />
+      </div>
     </aside>
 
     <section :class="$style['cards-container']">
@@ -49,7 +73,42 @@ import Card from '@/components/custom/cards/card.vue'
   }
 
   .image-container--desktop {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .image-container--desktop__arrow-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .image-container--desktop__arrow-container--left {
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .image-container--desktop__arrow-container--right {
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* .image-container--desktop__arrow-container--left {
+
+  } */
+
+  .image-container--desktop img {
+    width: 100%;
   }
 
   .cards-container {
