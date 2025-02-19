@@ -12,9 +12,9 @@ import shoppingResume from './shopping-resume.vue'
         <cartItem />
         <cartItem />
         <cartItem />
+        <!-- <cartItem />
         <cartItem />
-        <cartItem />
-        <cartItem />
+        <cartItem /> -->
       </aside>
 
       <shoppingResume />

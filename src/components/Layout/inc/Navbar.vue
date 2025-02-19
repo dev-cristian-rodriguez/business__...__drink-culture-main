@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import {
   Menu01Icon,
   LocationShare01Icon,
@@ -15,6 +16,9 @@ import {
 
 // Typescript types
 import type { NavbarItem } from '@/schemas/schemas.ts'
+
+const vueRouter = useRouter()
+
 const showSubmenu = ref(false)
 
 const alcoholicsBeverages: NavbarItem[] = [
@@ -84,21 +88,25 @@ const platformLinks: NavbarItem[] = [
   {
     id: 1,
     icon: ShoppingBasket01Icon,
+    path: '/purchases',
     text: 'Mis compras',
   },
   {
     id: 2,
     icon: FavouriteIcon,
+    path: '/favorites',
     text: 'Favoritos',
   },
   {
     id: 3,
     icon: Notification03Icon,
+    path: undefined,
     text: 'Notificaciones',
   },
   {
     id: 4,
     icon: ShoppingCart01Icon,
+    path: '/shopping-cart',
     text: 'Carrito de compras',
   },
 ]
@@ -109,11 +117,22 @@ const toggleSubmenu = (): void => {
 
 watch(showSubmenu, (newValue: boolean): void => {
   if (newValue) {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflowY = 'hidden'
   } else {
-    document.body.style.overflow = 'auto'
+    document.body.style.overflowY = 'auto'
   }
 })
+
+const goTo = (url: string | null): void => {
+  if (!url) return
+
+  vueRouter.push(url)
+
+  setTimeout(() => {
+    showSubmenu.value = false
+    document.body.style.overflowY = 'auto'
+  }, 200)
+}
 </script>
 
 <template>
@@ -146,9 +165,13 @@ watch(showSubmenu, (newValue: boolean): void => {
         <input type="text" placeholder="Buscar producto" id="search" name="search" />
       </label>
 
-      <router-link to="/shopping-cart">
-        <ShoppingCart01Icon width="23" height="23" color="white" cursor="pointer" />
-      </router-link>
+      <ShoppingCart01Icon
+        v-on:click="goTo('/shopping-cart')"
+        width="23"
+        height="23"
+        color="white"
+        cursor="pointer"
+      />
     </nav>
 
     <section :class="$style['sub-menu-container']" v-show="showSubmenu">
@@ -160,13 +183,14 @@ watch(showSubmenu, (newValue: boolean): void => {
         </p>
       </aside>
 
-      <aside :class="$style['sub-menu-container__login-button']">
+      <aside v-on:click="goTo('/account')" :class="$style['sub-menu-container__account-button']">
         <button type="button">Ingresar</button>
       </aside>
 
       <aside :class="$style['sub-menu-container__alcoholics-beverages-list']">
         <div
           v-for="item in alcoholicsBeverages"
+          v-on:click="goTo('/category/2')"
           :class="$style['sub-menu-container__alcoholics-beverages-list__detail']"
           v-bind:key="item.id"
         >
@@ -178,6 +202,7 @@ watch(showSubmenu, (newValue: boolean): void => {
 
       <aside :class="$style['sub-menu-container__platform-links']">
         <div
+          v-on:click="goTo(item?.path || null)"
           v-for="item in platformLinks"
           :class="$style['sub-menu-container__platform-links__link']"
           v-bind:key="item.id"
@@ -229,6 +254,7 @@ watch(showSubmenu, (newValue: boolean): void => {
                   : ''
             "
             v-for="item in alcoholicsBeverages"
+            v-on:click="goTo('/category/2')"
             :class="$style['navigation-content-column-2__alcoholic-beverage-list__detail']"
             v-bind:key="item.id"
           >
@@ -241,31 +267,31 @@ watch(showSubmenu, (newValue: boolean): void => {
         <img src="@/assets/images/notice.png" width="100%" height="38" />
 
         <aside :class="$style['navigation-content-column-3__platform-links']">
-          <div style="position: relative">
+          <div style="position: relative" v-on:click="goTo('/account')">
             <UserStatusIcon :class="$style['navigation-content-column-3__platform-links__icon']" />
             <p>Mi cuenta</p>
           </div>
 
-          <div style="position: relative">
+          <div style="position: relative" v-on:click="goTo('/purchases')">
             <ShoppingBasket01Icon
               :class="$style['navigation-content-column-3__platform-links__icon']"
             />
             <p>Mis compras</p>
           </div>
 
-          <div style="position: relative">
+          <div style="position: relative" v-on:click="goTo('/favorites')">
             <FavouriteIcon :class="$style['navigation-content-column-3__platform-links__icon']" />
             <p>Favoritos</p>
           </div>
 
-          <div style="position: relative">
+          <div style="position: relative" v-on:click="goTo(null)">
             <Notification03Icon
               :class="$style['navigation-content-column-3__platform-links__icon']"
             />
             <p>Notificaciones</p>
           </div>
 
-          <div style="position: relative">
+          <div style="position: relative" v-on:click="goTo('/shopping-cart')">
             <ShoppingCart01Icon
               :class="$style['navigation-content-column-3__platform-links__icon']"
             />
@@ -347,7 +373,7 @@ watch(showSubmenu, (newValue: boolean): void => {
   color: #1a1a32;
 }
 
-.sub-menu-container__login-button {
+.sub-menu-container__account-button {
   display: flex;
   justify-content: center;
   margin-top: 15px;
@@ -355,7 +381,7 @@ watch(showSubmenu, (newValue: boolean): void => {
   margin-right: 20px;
 }
 
-.sub-menu-container__login-button button {
+.sub-menu-container__account-button button {
   padding: 12px 0px;
   width: 100%;
   background: #1a1a32;

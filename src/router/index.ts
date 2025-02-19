@@ -4,9 +4,9 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/login/index.vue'),
+      path: '/account',
+      name: 'account',
+      component: () => import('@/views/account/index.vue'),
     },
 
     {
@@ -37,6 +37,12 @@ const router = createRouter({
       path: '/shopping-cart',
       name: 'shopping-cart',
       component: () => import('@/views/shopping-cart/index.vue'),
+    },
+
+    {
+      path: '/purchases',
+      name: 'purchases',
+      component: () => import('@/views/purchases/index.vue'),
     },
 
     {

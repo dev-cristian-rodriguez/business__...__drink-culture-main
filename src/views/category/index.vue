@@ -4,7 +4,7 @@ import Card from '@/components/custom/cards/card.vue'
 
 <template>
   <main>
-    <h1 class="category-view__title">Category view {{ $route.params.id }}</h1>
+    <h1 :class="$style['title']">Category view {{ $route.params.id }}</h1>
     <section :class="$style['cards-container']">
       <Card />
       <Card />
@@ -15,10 +15,9 @@ import Card from '@/components/custom/cards/card.vue'
 </template>
 
 <style module>
-.category-view__title {
+.title {
   text-align: center;
-  text-decoration: line-through;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .cards-container {
@@ -31,11 +30,5 @@ import Card from '@/components/custom/cards/card.vue'
 }
 
 @media (min-width: 1024px) {
-  .category-view__title {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
 </style>

@@ -1,6 +1,7 @@
 export interface NavbarItem {
   id: number
   icon: any
+  path?: null | string
   text: string
 }
 
