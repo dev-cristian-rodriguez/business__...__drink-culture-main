@@ -26,9 +26,10 @@ const toggleAdditionalInfo = () => {
 
     <aside v-show="showAdditionalInfo" :class="$style['additional-info__content']">
       <div :class="$style['additional-info__content__section']">
-        <strong :class="$style['additional-info__content__section__title']">Referencia</strong>
+        <strong :class="$style['additional-info__content__section__title']">Descripcin</strong>
         <p :class="$style['additional-info__content__section__text']">
-          Whisky Single Malt 100% ( 750 ML )
+          Producto de origen escocés, elaborado con cebada malteada y envejecido en barricas de
+          roble
         </p>
         <hr />
       </div>
@@ -42,7 +43,17 @@ const toggleAdditionalInfo = () => {
       </div>
 
       <div :class="$style['additional-info__content__section']">
-        <strong :class="$style['additional-info__content__section__title']">Referencia</strong>
+        <strong :class="$style['additional-info__content__section__title']">País de Origen</strong>
+        <p :class="$style['additional-info__content__section__text']">
+          Whisky Single Malt 100% ( 750 ML )
+        </p>
+        <hr />
+      </div>
+
+      <div :class="$style['additional-info__content__section']">
+        <strong :class="$style['additional-info__content__section__title']"
+          >Porcentaje o grado alcohólico</strong
+        >
         <p :class="$style['additional-info__content__section__text']">
           Whisky Single Malt 100% ( 750 ML )
         </p>

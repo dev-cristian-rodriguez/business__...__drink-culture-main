@@ -52,36 +52,36 @@ const alcoholicsBeverages: NavbarItem[] = [
     icon: MilkBottleIcon,
     text: 'Vino',
   },
-  {
-    id: 7,
-    icon: MilkBottleIcon,
-    text: 'Refrescos',
-  },
-  {
-    id: 8,
-    icon: MilkBottleIcon,
-    text: 'Snacks',
-  },
-  {
-    id: 9,
-    icon: MilkBottleIcon,
-    text: 'Aguas',
-  },
-  {
-    id: 10,
-    icon: MilkBottleIcon,
-    text: 'test',
-  },
-  {
-    id: 11,
-    icon: MilkBottleIcon,
-    text: 'testing2',
-  },
-  {
-    id: 12,
-    icon: MilkBottleIcon,
-    text: 'testing3',
-  },
+  // {
+  //   id: 7,
+  //   icon: MilkBottleIcon,
+  //   text: 'Refrescos',
+  // },
+  // {
+  //   id: 8,
+  //   icon: MilkBottleIcon,
+  //   text: 'Snacks',
+  // },
+  // {
+  //   id: 9,
+  //   icon: MilkBottleIcon,
+  //   text: 'Aguas',
+  // },
+  // {
+  //   id: 10,
+  //   icon: MilkBottleIcon,
+  //   text: 'Aguas',
+  // },
+  // {
+  //   id: 11,
+  //   icon: MilkBottleIcon,
+  //   text: 'Aguas',
+  // },
+  // {
+  //   id: 12,
+  //   icon: MilkBottleIcon,
+  //   text: 'Aguas',
+  // },
 ]
 
 const platformLinks: NavbarItem[] = [
@@ -225,7 +225,7 @@ const goTo = (url: string | null): void => {
         </router-link>
 
         <aside :class="$style['navigation-content-column-1__location-data']">
-          <LocationShare01Icon width="30" height="30" color="#2f2f49" />
+          <LocationShare01Icon width="30" height="30" color="white" />
           <div>
             <p :class="$style['navigation-content-column-1__location-data__user-name-location']">
               Send to Cristian
@@ -529,6 +529,8 @@ const goTo = (url: string | null): void => {
 
   .navigation-content-column-2__alcoholics-beverages-list {
     display: flex;
+    justify-content: center;
+    /* background: red; */
     overflow-x: auto;
   }
 

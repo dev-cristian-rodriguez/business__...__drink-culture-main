@@ -19,7 +19,7 @@ console.log(route.params)
       </router-link>
     </section>
 
-    <h5 :class="$style['product-page__title product-page__title--mobile']">
+    <h5 :class="[$style['product-page__title'], $style['product-page__title--mobile']]">
       Whisky Single Malt 100%
     </h5>
 
@@ -37,14 +37,14 @@ console.log(route.params)
 
       <aside :class="$style['product-page__image-container']">
         <img
-          src="@/assets/images/beverage-3.webp"
+          src="@/assets/images/beverage-1.jpg"
           alt="Whisky Bottle"
           :class="$style['product-page__image']"
         />
       </aside>
 
       <aside :class="$style['product-page__info']">
-        <h5 :class="$style['product-page__title product-page__title--desktop']">
+        <h5 :class="[$style['product-page__title'], $style['product-page__title--desktop']]">
           Whisky Single Malt 100%
         </h5>
         <ProductSummary />
@@ -72,7 +72,7 @@ console.log(route.params)
   align-items: center;
   gap: 5px;
   color: #1a1a32;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   cursor: pointer;
 }
@@ -89,7 +89,7 @@ console.log(route.params)
 
 /* Titles */
 .product-page__title {
-  font-weight: 500;
+  font-weight: 600;
   color: #1a1a32;
   font-size: 19px;
   margin-bottom: 20px;
