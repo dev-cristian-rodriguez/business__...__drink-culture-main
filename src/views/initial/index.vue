@@ -1,41 +1,65 @@
 <script setup lang="ts">
-import { ArrowLeft01Icon, ArrowRight01Icon } from 'hugeicons-vue'
+import {
+  Carousel,
+  Slide as CarouselSlide,
+  Pagination as CarouselPagination,
+  Navigation as CarouselNavigation,
+} from 'vue3-carousel'
 
 // Components
 import Card from '@/components/custom/cards/card.vue'
+
+const carouselConfig = {
+  itemsToShow: 1,
+  wrapAround: true,
+  autoplay: 4000,
+}
+
+// Mobile
+const imagesUrls1 = [
+  'https://images.falabella.com/v3/assets/blt088e6fffbba20f16/blt9b418bfadf51e45f/67afc91ed15087716a528838/2ModaHombre-Desk.jpg?auto=webp&disable=upscale&quality=70&width=720',
+  'https://images.falabella.com/v3/assets/blt088e6fffbba20f16/bltda39c1f683974d08/67afc91eefe40e92e48f91f3/3Belleza-Desk.jpg?auto=webp&disable=upscale&quality=70&width=720',
+  'https://images.falabella.com/v3/assets/blt088e6fffbba20f16/blta26fc04fc278bfc6/67b77da0fd5f93419ffce3e1/ModaMujer-Desk-20feb.jpg?auto=webp&disable=upscale&quality=70&width=720',
+]
+
+// Desktop
+const imagesUrls2 = [
+  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/dbae88a0-e01f-4229-a98a-04d7a57288d0___ee86286842992026a190ab2f8666d290.jpg',
+  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/a9762382-e2ea-4964-823a-d9cd058267e8___123fb1bf1e3344ec302747737912d16c.png',
+  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/24b35cd6-553e-45f9-b2a0-7a6af3f7ce13___0b7d3b12e96fe228b86340c377098343.png',
+  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/53ae748a-4c82-4a72-9fe5-0d91037e6dcf___e46e6fe226311d764653bd6fc81c7ea6.jpg',
+  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/a18cb71a-406f-4288-896b-72b83d2afbcd___53636046f2a8dbecbc45535af09399d4.jpg',
+]
 </script>
 
 <template>
   <main>
     <!-- Mobile Images -->
     <aside :class="$style['image-container--mobile']">
-      <img src="@/assets/images/notice-5.png" width="100%" />
+      <Carousel style="width: 100%" v-bind="carouselConfig">
+        <CarouselSlide v-for="slide in imagesUrls1" :key="slide">
+          <img v-bind:src="slide" width="100%" />
+        </CarouselSlide>
+
+        <template #addons>
+          <CarouselNavigation />
+          <CarouselPagination />
+        </template>
+      </Carousel>
     </aside>
 
     <!-- Desktop Images -->
     <aside :class="$style['image-container--desktop']">
-      <img src="@/assets/images/notice-1.png" />
-      <img src="@/assets/images/notice-2.png" />
-      <img src="@/assets/images/notice-3.png" />
-      <img src="@/assets/images/notice-4.png" />
+      <Carousel style="width: 100%" v-bind="carouselConfig">
+        <CarouselSlide v-for="slide in imagesUrls2" :key="slide">
+          <img v-bind:src="slide" width="100%" />
+        </CarouselSlide>
 
-      <div
-        :class="[
-          $style['image-container--desktop__arrow-container'],
-          $style['image-container--desktop__arrow-container--left'],
-        ]"
-      >
-        <ArrowLeft01Icon width="30" height="30" color="gray" />
-      </div>
-
-      <div
-        :class="[
-          $style['image-container--desktop__arrow-container'],
-          $style['image-container--desktop__arrow-container--right'],
-        ]"
-      >
-        <ArrowRight01Icon width="30" height="30" color="gray" />
-      </div>
+        <template #addons>
+          <CarouselNavigation />
+          <CarouselPagination />
+        </template>
+      </Carousel>
     </aside>
 
     <section :class="$style['cards-container']">
@@ -75,8 +99,8 @@ import Card from '@/components/custom/cards/card.vue'
   .image-container--desktop {
     display: flex;
     flex-wrap: nowrap;
-    position: relative;
-    overflow-x: hidden;
+    /* position: relative;
+    overflow-x: hidden; */
   }
 
   .image-container--desktop__arrow-container {
