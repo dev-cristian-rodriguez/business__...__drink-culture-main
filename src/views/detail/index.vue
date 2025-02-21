@@ -30,7 +30,7 @@ console.log(route.params)
           :key="n"
           width="100%"
           height="100"
-          style="object-fit: cover"
+          style="object-fit: cover; border-radius: 5px"
           src="@/assets/images/beverage-3.webp"
         />
       </aside>
@@ -127,6 +127,7 @@ console.log(route.params)
 .product-page__image {
   width: 100%;
   max-width: 350px;
+  border-radius: 6px;
 }
 
 /* Responsive for Desktop */

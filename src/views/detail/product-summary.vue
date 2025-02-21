@@ -37,6 +37,7 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
 .product-summary {
   width: 100%;
   max-width: none;
+  background: white;
   border: 1px solid rgb(189, 188, 188);
   border-radius: 10px;
   margin-top: 30px;
@@ -44,7 +45,8 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
 
 .product-summary__vendor-info {
   font-size: 12px;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
+  border-bottom: 2px solid #f4f4f4;
   padding: 8px 10px;
   margin: 0;
   border-top-left-radius: 10px;

@@ -33,7 +33,9 @@ const testId = '6'
   display: flex;
   flex-direction: column;
   width: 170px;
-  padding: 5px;
+  padding: 15px;
+  background: white;
+  border-radius: 6px;
 }
 
 .card__image {

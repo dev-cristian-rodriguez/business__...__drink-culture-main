@@ -32,7 +32,7 @@
   bottom: 0;
   left: 0;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   background: white;
 }
 
@@ -109,12 +109,14 @@
   .shopping-resume-container {
     position: relative;
     width: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
 @media screen and (min-width: 1250px) {
   .shopping-resume-container {
     width: 440px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 </style>

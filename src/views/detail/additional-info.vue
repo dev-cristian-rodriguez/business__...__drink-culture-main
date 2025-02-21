@@ -72,7 +72,7 @@ const toggleAdditionalInfo = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f4f4;
+  background-color: white;
   padding: 10px 15px;
   margin-top: 25px;
   border-top-left-radius: 10px;
@@ -88,7 +88,7 @@ const toggleAdditionalInfo = () => {
 }
 
 .additional-info__content {
-  background: #f4f4f4;
+  background: white;
   font-size: 12px;
   padding-top: 13px;
   border-left: 1px solid rgb(189, 188, 188);

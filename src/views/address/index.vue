@@ -92,6 +92,7 @@
 }
 
 .form-container {
+  background: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -99,6 +100,8 @@
   max-width: 600px;
   margin-top: 20px;
   gap: 30px;
+  padding: 35px 30px;
+  border-radius: 6px;
 }
 
 .form-container__child-block {

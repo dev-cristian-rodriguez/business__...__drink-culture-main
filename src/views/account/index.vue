@@ -32,10 +32,10 @@
 }
 
 .google-container {
+  background: white;
   display: flex;
   align-items: center;
   padding: 5px 20px;
-  /* padding: 10px; */
   border: 1px solid #1a1a32;
   border-radius: 6px;
   cursor: pointer;
