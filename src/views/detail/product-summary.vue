@@ -41,11 +41,11 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
   border: 1px solid rgb(189, 188, 188);
   border-radius: 10px;
   margin-top: 30px;
+  box-shadow: 0 0 6px rgb(189, 188, 188, 0.3);
 }
 
 .product-summary__vendor-info {
   font-size: 12px;
-  /* background-color: #f4f4f4; */
   border-bottom: 2px solid #f4f4f4;
   padding: 8px 10px;
   margin: 0;
@@ -117,7 +117,7 @@ import { ShoppingCart01Icon, Car03Icon, Archive01Icon } from 'hugeicons-vue'
   background: #121221;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .product-summary {
     max-width: 550px;
   }

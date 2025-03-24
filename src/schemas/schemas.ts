@@ -17,3 +17,9 @@ export interface Product {
   price: number
   category: string
 }
+
+export interface ThumbnailImage {
+  id: number
+  url: string
+  selected: boolean
+}

@@ -81,6 +81,7 @@ const toggleAdditionalInfo = () => {
   border-left: 1px solid rgb(189, 188, 188);
   border-right: 1px solid rgb(189, 188, 188);
   border-bottom: 1px solid rgb(189, 188, 188);
+  box-shadow: 0 0 6px rgb(189, 188, 188, 0.3);
 }
 
 .additional-info__slider h4 {

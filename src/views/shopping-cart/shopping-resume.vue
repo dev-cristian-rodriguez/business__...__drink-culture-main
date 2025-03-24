@@ -109,6 +109,7 @@
   .shopping-resume-container {
     position: relative;
     width: 350px;
+    padding: 1px 0px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
@@ -116,6 +117,7 @@
 @media screen and (min-width: 1250px) {
   .shopping-resume-container {
     width: 440px;
+    padding: 1px 0px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
