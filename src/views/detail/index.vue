@@ -29,6 +29,11 @@ const thumbnailsImages = ref<ThumbnailImage[]>([
     url: 'https://exitocol.vtexassets.com/arquivos/ids/26884829/Whisky-Old-Parr-12-Anos-750-ml-560307_d.jpg?v=638762679600830000',
     selected: false,
   },
+  {
+    id: 4,
+    url: 'https://exitocol.vtexassets.com/arquivos/ids/26884831/Whisky-Old-Parr-12-Anos-750-ml-560307_f.jpg?v=638762679603030000',
+    selected: false,
+  },
 ])
 
 const handleThumbnailClick = (id: number) => {
