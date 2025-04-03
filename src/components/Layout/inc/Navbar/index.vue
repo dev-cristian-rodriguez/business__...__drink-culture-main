@@ -52,59 +52,37 @@ const alcoholicsBeverages: NavbarItem[] = [
     icon: MilkBottleIcon,
     text: 'Vino',
   },
-  // {
-  //   id: 7,
-  //   icon: MilkBottleIcon,
-  //   text: 'Refrescos',
-  // },
-  // {
-  //   id: 8,
-  //   icon: MilkBottleIcon,
-  //   text: 'Snacks',
-  // },
-  // {
-  //   id: 9,
-  //   icon: MilkBottleIcon,
-  //   text: 'Aguas',
-  // },
-  // {
-  //   id: 10,
-  //   icon: MilkBottleIcon,
-  //   text: 'Aguas',
-  // },
-  // {
-  //   id: 11,
-  //   icon: MilkBottleIcon,
-  //   text: 'Aguas',
-  // },
-  // {
-  //   id: 12,
-  //   icon: MilkBottleIcon,
-  //   text: 'Aguas',
-  // },
 ]
 
 const platformLinks: NavbarItem[] = [
   {
     id: 1,
+    icon: UserStatusIcon,
+    path: '/account',
+    text: 'Mi cuenta',
+  },
+  {
+    id: 2,
     icon: ShoppingBasket01Icon,
     path: '/purchases',
     text: 'Mis compras',
   },
   {
-    id: 2,
-    icon: FavouriteIcon,
-    path: '/favorites',
-    text: 'Favoritos',
-  },
-  {
     id: 3,
-    icon: Notification03Icon,
-    path: undefined,
-    text: 'Notificaciones',
+    icon: FavouriteIcon,
+    path: null,
+    text: 'Favoritos',
+    event: () => alert('Favoritos'),
   },
   {
     id: 4,
+    icon: Notification03Icon,
+    path: null,
+    text: 'Notificaciones',
+    event: () => alert('Notificaciones'),
+  },
+  {
+    id: 5,
     icon: ShoppingCart01Icon,
     path: '/shopping-cart',
     text: 'Carrito de compras',
@@ -132,6 +110,11 @@ const goTo = (url: string | null): void => {
     showSubmenu.value = false
     document.body.style.overflowY = 'auto'
   }, 200)
+}
+
+const toggleNotificationsOrFavouritesSubmenu = (name: string): void => {
+  console.log(document.body)
+  alert(name)
 }
 </script>
 
@@ -202,8 +185,12 @@ const goTo = (url: string | null): void => {
 
       <aside :class="$style['sub-menu-container__platform-links']">
         <div
-          v-on:click="goTo(item?.path || null)"
           v-for="item in platformLinks"
+          v-on:click="
+            item?.path
+              ? goTo(item?.path || null)
+              : toggleNotificationsOrFavouritesSubmenu(item.text)
+          "
           :class="$style['sub-menu-container__platform-links__link']"
           v-bind:key="item.id"
         >
@@ -265,37 +252,38 @@ const goTo = (url: string | null): void => {
 
       <section :class="$style['navigation-content-column-3']">
         <img src="@/assets/images/notice.png" width="100%" height="38" />
-
         <aside :class="$style['navigation-content-column-3__platform-links']">
-          <div style="position: relative" v-on:click="goTo('/account')">
-            <UserStatusIcon :class="$style['navigation-content-column-3__platform-links__icon']" />
-            <p>Mi cuenta</p>
-          </div>
-
-          <div style="position: relative" v-on:click="goTo('/purchases')">
+          <div
+            v-for="item in platformLinks"
+            v-on:click="
+              item?.path
+                ? goTo(item?.path || null)
+                : toggleNotificationsOrFavouritesSubmenu(item.text)
+            "
+            style="position: relative"
+          >
+            <UserStatusIcon
+              v-if="item.text === 'Mi cuenta'"
+              :class="$style['navigation-content-column-3__platform-links__icon']"
+            />
             <ShoppingBasket01Icon
+              v-else-if="item.text === 'Mis compras'"
               :class="$style['navigation-content-column-3__platform-links__icon']"
             />
-            <p>Mis compras</p>
-          </div>
-
-          <div style="position: relative" v-on:click="goTo('/favorites')">
-            <FavouriteIcon :class="$style['navigation-content-column-3__platform-links__icon']" />
-            <p>Favoritos</p>
-          </div>
-
-          <div style="position: relative" v-on:click="goTo(null)">
+            <FavouriteIcon
+              v-else-if="item.text === 'Favoritos'"
+              :class="$style['navigation-content-column-3__platform-links__icon']"
+            />
             <Notification03Icon
+              v-else-if="item.text === 'Notificaciones'"
               :class="$style['navigation-content-column-3__platform-links__icon']"
             />
-            <p>Notificaciones</p>
-          </div>
-
-          <div style="position: relative" v-on:click="goTo('/shopping-cart')">
             <ShoppingCart01Icon
+              v-else-if="item.text === 'Carrito de compras'"
               :class="$style['navigation-content-column-3__platform-links__icon']"
             />
-            <p>Carrito</p>
+
+            <p>{{ item.text }}</p>
           </div>
         </aside>
       </section>
@@ -346,7 +334,7 @@ const goTo = (url: string | null): void => {
   border-right: none;
   border-top: none;
   border-bottom: none;
-  border-left: 1px solid #ccc;
+  border-left: 2px solid #ccc;
   outline: none;
   font-family: 'Inter', sans-serif;
 }
@@ -358,7 +346,7 @@ const goTo = (url: string | null): void => {
   width: 100%;
   height: 100%;
   background: white;
-  border-top: 1px solid #ccc;
+  border-top: 2px solid #ccc;
 }
 
 .sub-menu-container__user-info {

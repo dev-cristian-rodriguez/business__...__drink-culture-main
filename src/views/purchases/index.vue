@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import purchasesHeader from './purchases-header.vue'
 import purchaseElement from './purchase-element.vue'
 </script>
 
@@ -6,7 +7,12 @@ import purchaseElement from './purchase-element.vue'
   <main>
     <h1 :class="$style['title']">Compras</h1>
 
-    <aside :class="$style['purchases-container']">
+    <aside :class="$style['purchases-header-container']">
+      <purchasesHeader />
+    </aside>
+
+    <aside :class="$style['purchases-item-container']">
+      <purchaseElement />
       <purchaseElement />
       <purchaseElement />
       <purchaseElement />
@@ -15,6 +21,8 @@ import purchaseElement from './purchase-element.vue'
 </template>
 
 <style module>
+/* Mobile */
+
 .title {
   color: #1a1a32;
   font-size: 23px;
@@ -23,19 +31,29 @@ import purchaseElement from './purchase-element.vue'
   padding-top: 20px;
 }
 
-.purchases-container {
+.purchases-item-container {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding: 0px 17px;
+  margin: 25px 17px;
+}
+
+.purchases-header-container {
+  margin: 0px 17px;
 }
 
 @media screen and (min-width: 1000px) {
+  /* Desktop */
+
   .title {
     padding-top: 0px;
   }
 
-  .purchases-container {
+  .purchases-item-container {
+    padding: 0px 7%;
+  }
+
+  .purchases-header-container {
     padding: 0px 7%;
   }
 }

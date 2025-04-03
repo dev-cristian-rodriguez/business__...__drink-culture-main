@@ -24,7 +24,7 @@ const imagesUrls1 = [
 
 // Desktop
 const imagesUrls2 = [
-  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/dbae88a0-e01f-4229-a98a-04d7a57288d0___ee86286842992026a190ab2f8666d290.jpg',
+  'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/c62352f9-c8a2-48a6-9afe-e5113bc912fb___b1ecc37336a4281e09547d8bca7332cb.jpg',
   'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/a9762382-e2ea-4964-823a-d9cd058267e8___123fb1bf1e3344ec302747737912d16c.png',
   'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/24b35cd6-553e-45f9-b2a0-7a6af3f7ce13___0b7d3b12e96fe228b86340c377098343.png',
   'https://exitocol.vtexassets.com/assets/vtex.file-manager-graphql/images/53ae748a-4c82-4a72-9fe5-0d91037e6dcf___e46e6fe226311d764653bd6fc81c7ea6.jpg',

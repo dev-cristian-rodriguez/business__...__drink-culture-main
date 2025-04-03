@@ -70,8 +70,8 @@
 }
 
 .purchase-container__body img {
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
 }
 
 .purchase-container__body__purchase-detail {
