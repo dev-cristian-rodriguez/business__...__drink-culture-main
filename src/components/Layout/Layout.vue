@@ -2,13 +2,14 @@
 import { RouterView } from 'vue-router'
 
 // Components
-// import navbar from '@/components/Layout/inc/navbar.vue'
 import Navbar from './inc/Navbar/index.vue'
 // import Footer from '@/components/Layout/inc/Footer.vue'
 </script>
 
 <template>
   <Navbar />
+
+  <!-- Content -->
   <main :class="$style.childrenComponent">
     <RouterView />
   </main>

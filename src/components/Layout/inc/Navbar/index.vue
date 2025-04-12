@@ -70,9 +70,9 @@ const platformLinks: NavbarItem[] = [
   {
     id: 3,
     icon: FavouriteIcon,
-    path: null,
+    path: '/favorites',
     text: 'Favoritos',
-    event: () => alert('Favoritos'),
+    // event: () => alert('Favoritos'),
   },
   {
     id: 4,
@@ -255,6 +255,7 @@ const toggleNotificationsOrFavouritesSubmenu = (name: string): void => {
         <aside :class="$style['navigation-content-column-3__platform-links']">
           <div
             v-for="item in platformLinks"
+            v-bind:key="item.id"
             v-on:click="
               item?.path
                 ? goTo(item?.path || null)

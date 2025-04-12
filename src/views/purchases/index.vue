@@ -31,15 +31,15 @@ import purchaseElement from './purchase-element.vue'
   padding-top: 20px;
 }
 
+.purchases-header-container {
+  margin: 0px 17px;
+}
+
 .purchases-item-container {
   display: flex;
   flex-direction: column;
   gap: 25px;
   margin: 25px 17px;
-}
-
-.purchases-header-container {
-  margin: 0px 17px;
 }
 
 @media screen and (min-width: 1000px) {

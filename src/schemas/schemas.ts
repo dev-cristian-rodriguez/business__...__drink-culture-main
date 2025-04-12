@@ -3,7 +3,7 @@ export interface NavbarItem {
   icon: any
   path?: null | string
   text: string
-  event?: Function
+  event?: any
 }
 
 export interface User {
