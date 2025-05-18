@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import purchasesHeader from './purchases-header.vue'
-import purchaseElement from './purchase-element.vue'
+import purchasesHeader from './PurchasesHeader.vue'
+import purchaseElement from './PurchaseElement.vue'
 </script>
 
 <template>

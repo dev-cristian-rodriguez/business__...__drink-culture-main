@@ -1,11 +1,36 @@
 <script setup lang="ts">
-// import Card from '@/components/custom/cards/card.vue'
+// import axios from 'axios'
+
+// import { ref } from 'vue'
+import { googleSdkLoaded } from 'vue3-google-login'
+
+// Services
+import loginService from '@/core/services/login.services'
+
+const login = () => {
+  googleSdkLoaded((google) => {
+    google.accounts.oauth2
+      .initCodeClient({
+        client_id: import.meta.env.VITE_OAUTH_CLIENT_ID,
+        scope: 'email profile openid',
+        redirect_uri: import.meta.env.VITE_REDIRECT_URL,
+        callback: async (response) => {
+          if (response.code) {
+            const res = await loginService(response)
+
+            console.log('res', res)
+          }
+        },
+      })
+      .requestCode()
+  })
+}
 </script>
 
 <template>
   <main :class="$style['container']">
     <h1>Dar click para iniciar sesión con Google</h1>
-    <aside :class="$style['google-container']">
+    <aside :class="$style['google-container']" v-on:click="login">
       <img src="@/assets/images/google-icon.webp" />
       <p>Ingresar con Google</p>
     </aside>

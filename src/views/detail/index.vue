@@ -8,8 +8,8 @@ import { ArrowLeft02Icon } from 'hugeicons-vue'
 import type { ThumbnailImage } from '@/schemas/schemas.ts'
 
 // Components
-import ProductSummary from './product-summary.vue'
-import AdditionalInfo from './additional-info.vue'
+import ProductSummary from './ProductSummary.vue'
+import AdditionalInfo from './AdditionalInfo.vue'
 
 // const route = useRoute()
 

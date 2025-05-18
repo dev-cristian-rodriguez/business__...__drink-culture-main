@@ -11,7 +11,7 @@ const router = createRouter({
 
     {
       path: '/',
-      name: 'intial',
+      name: 'initial',
       component: () => import('@/views/initial/index.vue'),
     },
 
@@ -36,7 +36,7 @@ const router = createRouter({
     {
       path: '/shopping-cart',
       name: 'shopping-cart',
-      component: () => import('@/views/shopping-cart/index.vue'),
+      component: () => import('@/views/shoppingCart/index.vue'),
     },
 
     {
@@ -54,7 +54,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('@/components/common/notFound/notFound.vue'),
+      component: () => import('@/components/common/notFound/index.vue'),
     },
   ],
 })

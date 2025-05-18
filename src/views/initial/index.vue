@@ -7,7 +7,7 @@ import {
 } from 'vue3-carousel'
 
 // Components
-import Card from '@/components/custom/cards/card.vue'
+import Card from '@/components/custom/cards/Card.vue'
 
 const carouselConfig = {
   itemsToShow: 1,

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import cartItem from './cart-item.vue'
-import shoppingResume from './shopping-resume.vue'
+import cartItem from './CartItem.vue'
+import shoppingResume from './ShoppingResume.vue'
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import favoriteElement from './favorite-element.vue'
+import favoriteElement from './FavoriteElement.vue'
 </script>
 
 <template>
